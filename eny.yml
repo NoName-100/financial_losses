@@ -1,0 +1,11 @@
+name: financial-losses
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip:
+    - pytorch
+    - torchvision
+    - pandas
+    - matplotlib
+    - scipy
