@@ -27,19 +27,19 @@ if __name__ == '__main__':
 
     # THETA LOADING
     try:
-        with open('submission_data/theta.pth', 'rb') as theta_file:
+        with open('submission/theta.pth', 'rb') as theta_file:
             theta = pickle.load(theta_file)
     except FileNotFoundError:
         # Theta training
         theta = train('data/train.csv')
 
-        file = open('submission_data/theta.pth', 'wb')
+        file = open('submission/theta.pth', 'wb')
         pickle.dump(theta, file)
         file.close()
 
     # NOISE VECTOR LOADING
     try:
-        Z = pd.read_csv('submission_data/noise.csv', header=None)
+        Z = pd.read_csv('submission/noise.csv', header=None)
     except FileNotFoundError:
         mu_Z = np.zeros(z_dim)
         cov_Z = np.eye(z_dim)
@@ -47,4 +47,4 @@ if __name__ == '__main__':
 
     # DATA GENERATION
     generated = generator(theta, Z)
-    pd.DataFrame(generated).to_csv('data.csv', index=False, header=False)
+    pd.DataFrame(generated).to_csv('generated_data.csv', index=False, header=False)
