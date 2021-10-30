@@ -39,7 +39,7 @@ if __name__ == '__main__':
 
     # NOISE VECTOR LOADING
     try:
-        Z = pd.read_csv('submission_data/noise_0.csv', header=None)
+        Z = pd.read_csv('submission_data/noise.csv', header=None)
     except FileNotFoundError:
         mu_Z = np.zeros(z_dim)
         cov_Z = np.eye(z_dim)
@@ -47,4 +47,4 @@ if __name__ == '__main__':
 
     # DATA GENERATION
     generated = generator(theta, Z)
-    pd.DataFrame(generated).to_csv('submission_data/data.csv', index=False, header=False)
+    pd.DataFrame(generated).to_csv('data.csv', index=False, header=False)
