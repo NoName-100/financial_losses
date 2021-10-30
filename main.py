@@ -30,7 +30,9 @@ if __name__ == '__main__':
         with open('submission_data/theta.pth', 'rb') as theta_file:
             theta = pickle.load(theta_file)
     except FileNotFoundError:
+        # Theta training
         theta = train('data/train.csv')
+
         file = open('submission_data/theta.pth', 'wb')
         pickle.dump(theta, file)
         file.close()
