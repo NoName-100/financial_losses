@@ -2,3 +2,6 @@
 .ipynb_checkpoints
 __pycache__
 *.zip
+generated_samples.csv
+noise.csv
+theta.pth
